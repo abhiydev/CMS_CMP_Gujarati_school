@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import SafeImage from './SafeImage';
 
 export default function GalleryLightbox({ src, onClose }) {
   return (
@@ -17,19 +18,20 @@ export default function GalleryLightbox({ src, onClose }) {
             exit={{ scale: 0.95, opacity: 0 }}
           >
             <button
+              type="button"
+              aria-label="Close gallery preview"
               onClick={onClose}
-              className="absolute right-4 top-4 z-10 rounded-full bg-white/90 px-3 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-white"
+              className="absolute right-4 top-4 z-10 min-h-[44px] rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm hover:bg-white"
             >
               Close
             </button>
-            <motion.img
-              src={src}
-              alt="Gallery preview"
-              className="h-[70vh] w-full object-cover"
+            <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.3 }}
-            />
+            >
+              <SafeImage src={src} alt="Gallery preview" className="h-[70vh] w-full object-cover" />
+            </motion.div>
           </motion.div>
         </motion.div>
       ) : null}

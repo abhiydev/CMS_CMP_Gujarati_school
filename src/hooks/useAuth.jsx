@@ -40,10 +40,19 @@ export function useAuth() {
     setSession(null);
   };
 
+  const role =
+    session?.user?.app_metadata?.role ||
+    session?.user?.user_metadata?.role ||
+    'admin';
+
+  const isAdmin = role === 'admin';
+
   return {
     session,
     loading,
     error,
+    role,
+    isAdmin,
     signIn,
     signOut,
   };

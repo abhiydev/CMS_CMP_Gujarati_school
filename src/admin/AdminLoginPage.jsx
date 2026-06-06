@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import SeoMeta from '../components/SeoMeta';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 export default function AdminLoginPage() {
@@ -34,7 +35,8 @@ export default function AdminLoginPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 px-6 py-24 text-slate-900">
-      <div className="mx-auto max-w-md rounded-[2rem] border border-slate-200 bg-white p-10 shadow-soft">
+      <SeoMeta title="Admin Login" description="Secure CMS access for school staff." noindex />
+      <div className="mx-auto max-w-md rounded-[2rem] border border-slate-200 bg-white p-8 shadow-soft sm:p-10">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-600">Admin Login</p>
         <h1 className="mt-6 text-3xl font-semibold text-slate-900">Secure access to the school CMS</h1>
         <p className="mt-4 text-slate-600">Sign in with your admin credentials to manage content, gallery uploads, and notices.</p>
