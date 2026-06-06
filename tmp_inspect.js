@@ -1,0 +1,22 @@
+const fs = require('fs');
+const data = JSON.parse(fs.readFileSync('school-data.json','utf8'));
+const uniq = (a) => [...new Set(a)];
+const home = data.pages.home;
+console.log('--- phones');
+console.log(data.contacts.phones);
+console.log('--- emails');
+console.log(data.contacts.emails);
+console.log('--- addresses');
+console.log(data.contacts.addresses);
+console.log('--- unique facilities');
+console.log(uniq(home.facilities).join('\n---\n'));
+console.log('--- unique achievements');
+console.log(uniq(home.achievements).join('\n---\n'));
+console.log('--- gallery images');
+console.log(data.gallery_images.join('\n'));
+console.log('--- about text count', data.pages.about.text_sections.length);
+data.pages.about.text_sections.forEach((s,i)=>{
+  console.log('--- about', i, s.heading);
+  console.log(s.text.replace(/\s+/g,' ').slice(0,260));
+});
+console.log('--- about principal count', data.pages.about.principal_messages.length);
