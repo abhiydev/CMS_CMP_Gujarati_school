@@ -122,7 +122,7 @@ const normalizeRows = (rows) => {
 };
 
 export const fetchSiteContent = async () => {
-  const { data, error } = await supabase.from('site_content').select('*');
+  const { data, error } = await supabase.from('site_content').select('*').eq('status', 'published');
   if (error) {
     throw error;
   }

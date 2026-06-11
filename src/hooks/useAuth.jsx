@@ -43,7 +43,7 @@ export function useAuth() {
   const role =
     session?.user?.app_metadata?.role ||
     session?.user?.user_metadata?.role ||
-    'admin';
+    null;
 
   const isAdmin = role === 'admin';
 

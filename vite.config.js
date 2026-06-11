@@ -12,18 +12,15 @@ export default defineConfig({
             return;
           }
 
-          if (id.includes('node_modules/react-router-dom')) {
-            return 'vendor-router';
-          }
-
-          if (id.includes('node_modules/react-dom') || id.includes('node_modules/react')) {
-            return 'vendor-react';
-          }
-
           if (id.includes('node_modules/@supabase')) {
-            return 'vendor-supabase';
+            return 'supabase-vendor';
           }
 
+          if (id.includes('node_modules/framer-motion')) {
+            return 'motion-vendor';
+          }
+
+          // Group remaining node_modules together to avoid circular dependencies
           return 'vendor';
         },
       },
