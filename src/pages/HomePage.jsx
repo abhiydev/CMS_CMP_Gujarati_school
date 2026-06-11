@@ -517,6 +517,12 @@ export default function HomePage() {
         </div>
       </footer>
 
+      <div className="py-2 text-center">
+        <a href="https://kamiytech.com/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-300 hover:text-slate-400 transition-colors">
+          Designed & Developed by KamiyTech
+        </a>
+      </div>
+
       <ErrorBoundary name="gallery-lightbox" fallbackTitle="">
         <GalleryLightbox src={activeImage} onClose={() => setActiveImage(null)} />
       </ErrorBoundary>
