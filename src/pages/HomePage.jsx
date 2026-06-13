@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import SectionHeading from '../components/SectionHeading';
-import GalleryLightbox from '../components/GalleryLightbox';
-import NoticesBanner from '../components/NoticesBanner';
-import SafeImage from '../components/SafeImage';
-import ErrorBoundary from '../components/ErrorBoundary';
-import SeoMeta from '../components/SeoMeta';
-import SchoolJsonLd from '../components/SchoolJsonLd';
-import { useSiteData } from '../hooks/useSiteData';
-import { asArray } from '../services/contentService';
-import LoadingSpinner from '../components/LoadingSpinner';
+import SectionHeading from '../components/SectionHeading.jsx';
+import GalleryLightbox from '../components/GalleryLightbox.jsx';
+import NoticesBanner from '../components/NoticesBanner.jsx';
+import SafeImage from '../components/SafeImage.jsx';
+import ErrorBoundary from '../components/ErrorBoundary.jsx';
+import SeoMeta from '../components/SeoMeta.jsx';
+import SchoolJsonLd from '../components/SchoolJsonLd.jsx';
+import { useSiteData } from '../hooks/useSiteData.jsx';
+import { asArray } from '../services/contentService.js';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
 
 const navItems = [
   { label: 'Why Choose Us', href: '#why' },
@@ -58,13 +58,13 @@ export default function HomePage() {
           <a href="#home" className="flex min-w-0 items-center gap-3">
             <img
               src={brand.logo}
-              alt="Shree Gujarati Samaj School logo"
+              alt="CMP Gujarati Samaj School logo"
               width={48}
               height={48}
               className="h-10 w-10 shrink-0 rounded-full border border-slate-200 bg-white object-contain p-0.5 sm:h-12 sm:w-12"
             />
             <div className="min-w-0">
-              <p className="truncate text-xs font-semibold tracking-[0.2em] text-indigo-600 sm:text-sm sm:tracking-[0.25em]">Shree Gujarati Samaj</p>
+              <p className="truncate text-xs font-semibold tracking-[0.2em] text-indigo-600 sm:text-sm sm:tracking-[0.25em]">CMP Gujarati Samaj</p>
               <p className="truncate text-sm font-semibold text-slate-900 sm:text-base">Primary &amp; Middle School</p>
             </div>
           </a>
@@ -110,10 +110,10 @@ export default function HomePage() {
                   Founded 1957 • Indore
                 </span>
                 <h1 className="mt-8 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                  {hero.title || 'Heritage education for Gujarati families, built for modern admissions.'}
+                  {hero.title || 'Heritage education, built for modern admissions.'}
                 </h1>
                 <p className="mt-6 max-w-xl text-lg leading-8 text-slate-100/90">
-                  {hero.subtitle || 'Shree Gujarati Samaj School blends disciplined academics, cultural pride and affordable facilities to make every parent feel confident about their child’s future.'}
+                  {hero.subtitle || 'CMP Gujarati Samaj School blends disciplined academics, cultural pride and affordable facilities to make every parent feel confident about their child’s future.'}
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                   <a href="#admissions" className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-600/20 hover:bg-indigo-700">
@@ -204,7 +204,7 @@ export default function HomePage() {
               variant="dark"
               eyebrow="Academic Excellence"
               title="Holistic education with a strong academic foundation."
-              description="From science and language to sports and arts, the school supports each child with the right balance of discipline and creativity."
+              description="From academics to the arts, the school blends discipline with creativity to help every child flourish in their own way and build a strong foundation for future success."
             />
             <div className="mt-12 grid gap-8 lg:grid-cols-[0.95fr_0.95fr] lg:items-start">
               <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-soft shadow-black/20">
@@ -411,39 +411,67 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="contact" className="bg-slate-950 py-20 text-white">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <section id="contact" className="overflow-x-hidden bg-slate-950 py-20 text-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-              <div>
+
+              <div className="min-w-0">
                 <SectionHeading
                   variant="dark"
                   eyebrow="Contact"
                   title="Get in touch and visit the school in Indore."
                   description="Our admissions team is ready to answer questions about fees, transport, student life and enrollment."
                 />
-                <div className="mt-10 space-y-6 rounded-[2rem] border border-white/10 bg-slate-900/90 p-8 shadow-soft">
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.24em] text-indigo-300">Phone</p>
-                    <a href={`tel:${contact.phone}`} className="mt-2 block text-2xl font-semibold text-white hover:text-indigo-300">
+
+                <div className="mt-10 space-y-6 rounded-[2rem] border border-white/10 bg-slate-900/90 p-6 sm:p-8 shadow-soft">
+
+                  <div className="min-w-0">
+                    <p className="text-sm uppercase tracking-[0.24em] text-indigo-300">
+                      Phone
+                    </p>
+
+                    <a
+                      href={`tel:${contact.phone}`}
+                      className="mt-2 block break-all text-xl sm:text-2xl font-semibold text-white hover:text-indigo-300"
+                    >
                       {contact.phone}
                     </a>
-                    <a href={`tel:${contact.altPhone}`} className="mt-1 block text-slate-400 hover:text-indigo-300">
+
+                    <a
+                      href={`tel:${contact.altPhone}`}
+                      className="mt-1 block break-all text-slate-400 hover:text-indigo-300"
+                    >
                       Alternate: {contact.altPhone}
                     </a>
                   </div>
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.24em] text-indigo-300">Email</p>
-                    <a href={`mailto:${contact.email}`} className="mt-2 block text-2xl font-semibold text-white hover:text-indigo-300">
+
+                  <div className="min-w-0">
+                    <p className="text-sm uppercase tracking-[0.24em] text-indigo-300">
+                      Email
+                    </p>
+
+                    <a
+                      href={`mailto:${contact.email}`}
+                      className="mt-2 block break-all text-xl sm:text-2xl font-semibold text-white hover:text-indigo-300"
+                    >
                       {contact.email}
                     </a>
                   </div>
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.24em] text-indigo-300">Address</p>
-                    <p className="mt-2 text-lg font-semibold leading-8 text-white sm:text-xl">{contact.address}</p>
+
+                  <div className="min-w-0">
+                    <p className="text-sm uppercase tracking-[0.24em] text-indigo-300">
+                      Address
+                    </p>
+
+                    <p className="mt-2 text-lg font-semibold leading-8 text-white sm:text-xl break-words">
+                      {contact.address}
+                    </p>
                   </div>
+
                 </div>
               </div>
-              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-slate-800 p-8 shadow-soft">
+
+              <div className="min-w-0 overflow-hidden rounded-[2rem] border border-white/10 bg-slate-800 p-4 sm:p-8 shadow-soft">
                 <div className="overflow-hidden rounded-[1.5rem] border border-white/10">
                   <iframe
                     title="CMP Gujarati Samaj School Location"
@@ -456,6 +484,7 @@ export default function HomePage() {
                   />
                 </div>
               </div>
+
             </div>
           </div>
         </section>
@@ -465,9 +494,9 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:px-8">
           <div>
             <div className="flex items-center gap-3">
-              <img src={brand.logo} alt="Shree Gujarati Samaj School logo" width={48} height={48} className="h-12 w-12 shrink-0 rounded-full border border-slate-200 bg-white object-contain p-0.5" />
+              <img src={brand.logo} alt="CMP Gujarati Samaj School logo" width={48} height={48} className="h-12 w-12 shrink-0 rounded-full border border-slate-200 bg-white object-contain p-0.5" />
               <div>
-                <p className="text-base font-semibold text-slate-900">Shree Gujarati Samaj School</p>
+                <p className="text-base font-semibold text-slate-900">CMP Gujarati Samaj School</p>
                 <p className="text-sm text-slate-500">Building trusted Gujarati education in Indore since 1957.</p>
               </div>
             </div>
@@ -516,12 +545,6 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
-
-      <div className="py-2 text-center">
-        <a href="https://kamiytech.com/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-300 hover:text-slate-400 transition-colors">
-          Designed & Developed by KamiyTech
-        </a>
-      </div>
 
       <ErrorBoundary name="gallery-lightbox" fallbackTitle="">
         <GalleryLightbox src={activeImage} onClose={() => setActiveImage(null)} />
