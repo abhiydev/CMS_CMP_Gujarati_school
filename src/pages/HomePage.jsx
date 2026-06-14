@@ -53,38 +53,73 @@ export default function HomePage() {
       />
       <SchoolJsonLd brand={brand} contact={contact} logo={brand.logo} />
 
-      <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur-lg">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
+      <header className="sticky scroll-fixed w-screen top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur-lg">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+          {/* Brand */}
           <a href="#home" className="flex min-w-0 items-center gap-3">
             <img
               src={brand.logo}
               alt="CMP Gujarati Samaj School logo"
-              width={48}
-              height={48}
-              className="h-10 w-10 shrink-0 rounded-full border border-slate-200 bg-white object-contain p-0.5 sm:h-12 sm:w-12"
+              className="h-11 w-auto sm:h-12 md:h-15 object-contain"
             />
-            <div className="min-w-0">
-              <p className="truncate text-xs font-semibold tracking-[0.2em] text-indigo-600 sm:text-sm sm:tracking-[0.25em]">CMP Gujarati Samaj</p>
-              <p className="truncate text-sm font-semibold text-slate-900 sm:text-base">Primary &amp; Middle School</p>
+
+            <div className="min-w-0 leading-tight">
+              <p className="truncate text-[11px] font-bold uppercase tracking-[0.22em] text-indigo-600">
+                CMP Gujarati Samaj
+              </p>
+
+              <p className="truncate text-sm font-semibold text-slate-900 sm:text-base">
+                Primary & Middle School
+              </p>
             </div>
           </a>
-          <nav className="hidden items-center gap-5 lg:flex" aria-label="Main navigation">
+
+          {/* Desktop Navigation */}
+          <nav
+            className="hidden items-center gap-6 lg:flex"
+            aria-label="Main navigation"
+          >
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="text-sm font-medium text-slate-600 hover:text-slate-900">
+              <a
+                key={item.href}
+                href={item.href}
+                className="
+            relative text-sm font-medium text-slate-600
+            transition-colors duration-200
+            hover:text-slate-900
+          "
+              >
                 {item.label}
               </a>
             ))}
           </nav>
+
+          {/* Actions */}
           <div className="flex shrink-0 items-center gap-2">
             <a
               href={`tel:${contact.phone}`}
-              className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-500/20 hover:bg-indigo-700 lg:hidden"
+              className="
+          inline-flex min-h-[42px] items-center justify-center
+          rounded-full border border-slate-300
+          bg-indigo-600 hover:bg-indigo-700
+          px-4 py-2 text-sm font-medium text-white
+          transition
+          lg:hidden
+        "
             >
               Call
             </a>
+
             <a
               href={`tel:${contact.phone}`}
-              className="hidden min-h-[44px] items-center justify-center rounded-full bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-500/20 hover:bg-indigo-700 lg:inline-flex"
+              className="
+          hidden min-h-[44px] items-center justify-center
+          rounded-full bg-indigo-600
+          px-5 py-2.5 text-sm font-semibold text-white
+          shadow-sm shadow-indigo-500/20
+          transition hover:bg-indigo-700
+          lg:inline-flex
+        "
             >
               Call Admissions
             </a>
@@ -373,33 +408,64 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-              <div className="rounded-[2rem] border border-slate-200/90 bg-slate-950 p-10 text-white shadow-soft">
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-indigo-400">Talk to admissions</p>
-                <h3 className="mt-4 text-3xl font-semibold">Let us help you take the next step.</h3>
-                <p className="mt-5 leading-8 text-slate-300">
+              <div className="min-w-0 overflow-hidden rounded-[2rem] border border-slate-200/90 bg-slate-950 p-6 sm:p-8 lg:p-10 text-white shadow-soft">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-indigo-400">
+                  Talk to admissions
+                </p>
+
+                <h3 className="mt-4 text-2xl sm:text-3xl font-semibold leading-tight">
+                  Let us help you take the next step.
+                </h3>
+
+                <p className="mt-5 leading-7 sm:leading-8 text-slate-300">
                   {admissions.description}
                 </p>
+
                 <div className="mt-8 space-y-4 text-slate-100">
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Phone</p>
-                    <a href={`tel:${contact.phone}`} className="mt-2 block text-xl font-semibold text-white hover:text-indigo-300">
+                  <div className="min-w-0">
+                    <p className="text-sm uppercase tracking-[0.24em] text-slate-400">
+                      Phone
+                    </p>
+
+                    <a
+                      href={`tel:${contact.phone}`}
+                      className="mt-2 block break-words text-lg sm:text-xl font-semibold text-white hover:text-indigo-300"
+                    >
                       {contact.phone}
                     </a>
-                    <a href={`tel:${contact.altPhone}`} className="mt-2 block text-sm text-slate-300 hover:text-indigo-300">
+
+                    <a
+                      href={`tel:${contact.altPhone}`}
+                      className="mt-2 block break-words text-sm text-slate-300 hover:text-indigo-300"
+                    >
                       {contact.altPhone}
                     </a>
                   </div>
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Email</p>
-                    <a href={`mailto:${contact.email}`} className="mt-2 block text-xl font-semibold text-white hover:text-indigo-300">
+
+                  <div className="min-w-0">
+                    <p className="text-sm uppercase tracking-[0.24em] text-slate-400">
+                      Email
+                    </p>
+
+                    <a
+                      href={`mailto:${contact.email}`}
+                      className="mt-2 block break-all text-lg sm:text-xl font-semibold text-white hover:text-indigo-300"
+                    >
                       {contact.email}
                     </a>
                   </div>
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Address</p>
-                    <p className="mt-2 text-slate-300">{contact.address}</p>
+
+                  <div className="min-w-0">
+                    <p className="text-sm uppercase tracking-[0.24em] text-slate-400">
+                      Address
+                    </p>
+
+                    <p className="mt-2 break-words text-slate-300">
+                      {contact.address}
+                    </p>
                   </div>
                 </div>
+
                 <a
                   href={`mailto:${contact.email}`}
                   className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-600/25 hover:bg-indigo-700"

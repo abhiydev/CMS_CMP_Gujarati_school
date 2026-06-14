@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { fetchRecentActivity } from '../services/activityService';
-import { useAuth } from '../hooks/useAuth';
-import LoadingSpinner from '../components/LoadingSpinner';
+import { fetchRecentActivity } from '../services/activityService.js';
+import { useAuth } from '../hooks/useAuth.jsx';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
 
 const actionLabels = {
   section_updated: 'Section updated',
