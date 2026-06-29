@@ -243,7 +243,7 @@ export default function HomePage() {
             <SectionHeading
               variant="dark"
               eyebrow="Academic Excellence"
-              title="Holistic education with a strong academic foundation."
+              title="Education with a strong academic foundation."
               description="From academics to the arts, the school blends discipline with creativity to help every child flourish in their own way and build a strong foundation for future success."
             />
             <div className="mt-12 grid gap-8 lg:grid-cols-[0.95fr_0.95fr] lg:items-start">
@@ -433,13 +433,13 @@ export default function HomePage() {
                 title="Real moments from school events and celebrations."
                 description="Explore the school’s culture, academic activities and the joy of student life captured through real images."
               />
-              <div className="mt-12 columns-1 gap-4 sm:columns-2 xl:columns-3">
+              <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
                 {asArray(gallery).map((src, index) => (
                   <button
                     type="button"
                     key={`${src}-${index}`}
                     onClick={() => setActiveImage(src)}
-                    className="mb-4 inline-block w-full cursor-pointer overflow-hidden rounded-[2rem] shadow-soft"
+                    className="w-full cursor-pointer overflow-hidden rounded-[2rem] shadow-soft"
                   >
                     <SafeImage src={src} alt={`Gallery ${index + 1}`} className="h-72 w-full object-cover transition duration-300 hover:scale-105" lazy />
                   </button>

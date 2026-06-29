@@ -208,7 +208,11 @@ export function useSiteData() {
 
           Array.isArray(dbGallery) && dbGallery.length > 0
 
-            ? dbGallery.map((item) => item.image_url).filter(Boolean)
+            ? dbGallery
+
+                .map((item) => (typeof item.image_url === 'string' ? item.image_url.trim() : ''))
+
+                .filter(Boolean)
 
             : fallbackContent.galleryImages,
 

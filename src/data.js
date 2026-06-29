@@ -173,7 +173,7 @@ export const galleryImages = [
 export const admissions = {
   title: 'Admissions that welcome every family',
   description:
-    'Start your child’s journey with a school that combines strong scholarship, community values, and a supportive environment for every learner.',
+    'Start your child’s journey with a school that, community values, and a supportive environment for every learner.',
   steps: [
     {
       label: '01',
