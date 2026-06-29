@@ -1,7 +1,7 @@
 import { Link, Navigate, Outlet, useLocation } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
-import LoadingSpinner from '../components/LoadingSpinner';
-import ErrorBoundary from '../components/ErrorBoundary';
+import { useAuth } from '../hooks/useAuth.jsx';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
+import ErrorBoundary from '../components/ErrorBoundary.jsx';
 
 const baseNavItems = [
   { label: 'Dashboard', path: '/admin' },

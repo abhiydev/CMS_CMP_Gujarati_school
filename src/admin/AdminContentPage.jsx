@@ -14,15 +14,15 @@ import {
 
   upsertSiteContent,
 
-} from '../services/contentService';
+} from '../services/contentService.js';
 
-import { logActivity } from '../services/activityService';
+import { logActivity } from '../services/activityService.js';
 
-import { validateSectionForm } from '../utils/validation';
+import { validateSectionForm } from '../utils/validation.js';
 
-import AdminImageField from './AdminImageField';
+import AdminImageField from './AdminImageField.jsx';
 
-import RepeaterEditor from './RepeaterEditor';
+import RepeaterEditor from './RepeaterEditor.jsx';
 
 import {
 
@@ -34,11 +34,11 @@ import {
 
   SECTION_KEYS,
 
-} from './sectionConfig';
+} from './sectionConfig.js';
 
-import LoadingSpinner from '../components/LoadingSpinner';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
 
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../hooks/useAuth.jsx';
 
 
 

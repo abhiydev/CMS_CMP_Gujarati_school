@@ -1,4 +1,4 @@
-import { fallbackContent } from '../data';
+import { fallbackContent } from '../data.js';
 
 /** Lightweight CMS section metadata — drives admin form fields and serialization. */
 export const SECTION_CONFIG = {
