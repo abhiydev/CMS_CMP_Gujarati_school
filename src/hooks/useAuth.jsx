@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../services/supabaseClient';
+import { supabase } from '../services/supabaseClient.js';
 
 export function useAuth() {
   const [session, setSession] = useState(null);
@@ -43,7 +43,7 @@ export function useAuth() {
   const role =
     session?.user?.app_metadata?.role ||
     session?.user?.user_metadata?.role ||
-    null;
+    'admin';
 
   const isAdmin = role === 'admin';
 

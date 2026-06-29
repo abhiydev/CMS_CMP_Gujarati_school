@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import SeoMeta from '../components/SeoMeta';
+import SeoMeta from '../components/SeoMeta.jsx';
 
 export default function NotFoundPage() {
   return (

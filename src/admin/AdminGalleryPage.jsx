@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { createGalleryImage, deleteGalleryItem, fetchGallery, uploadStorageImage } from '../services/contentService';
-import { logActivity } from '../services/activityService';
-import { validateImageFile } from '../utils/validation';
-import { useAuth } from '../hooks/useAuth';
-import LoadingSpinner from '../components/LoadingSpinner';
-import SafeImage from '../components/SafeImage';
+import { createGalleryImage, deleteGalleryItem, fetchGallery, uploadStorageImage } from '../services/contentService.js';
+import { logActivity } from '../services/activityService.js';
+import { validateImageFile } from '../utils/validation.js';
+import { useAuth } from '../hooks/useAuth.jsx';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
+import SafeImage from '../components/SafeImage.jsx';
 
 export default function AdminGalleryPage() {
   const { session } = useAuth();

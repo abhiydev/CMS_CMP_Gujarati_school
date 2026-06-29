@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import SafeImage from './SafeImage';
+import SafeImage from './SafeImage.jsx';
 
 export default function GalleryLightbox({ src, onClose }) {
   return (

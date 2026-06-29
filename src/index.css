@@ -31,3 +31,31 @@ img {
   max-width: 100%;
   display: block;
 }
+
+.leadership-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.leadership-swiper .swiper-slide {
+  display: flex;
+  height: auto;
+}
+
+.leadership-carousel .leadership-pagination .swiper-pagination-bullet {
+  width: 0.625rem;
+  height: 0.625rem;
+  background: #cbd5e1;
+  opacity: 1;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.leadership-carousel .leadership-pagination .swiper-pagination-bullet-active {
+  background: #4f46e5;
+  transform: scale(1.15);
+}
+
+.leadership-carousel .leadership-prev.swiper-button-disabled,
+.leadership-carousel .leadership-next.swiper-button-disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}

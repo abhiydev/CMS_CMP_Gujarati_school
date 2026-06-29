@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { createNotice, deleteNotice, fetchNotices, updateNotice } from '../services/contentService';
-import { logActivity } from '../services/activityService';
-import { validateNoticeForm } from '../utils/validation';
-import { useAuth } from '../hooks/useAuth';
-import LoadingSpinner from '../components/LoadingSpinner';
+import { createNotice, deleteNotice, fetchNotices, updateNotice } from '../services/contentService.js';
+import { logActivity } from '../services/activityService.js';
+import { validateNoticeForm } from '../utils/validation.js';
+import { useAuth } from '../hooks/useAuth.jsx';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
 
 const EMPTY_FORM = { title: '', description: '', publish_date: '', status: 'published' };
 

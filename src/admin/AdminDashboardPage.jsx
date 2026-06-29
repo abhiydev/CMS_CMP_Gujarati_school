@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchRecentActivity } from '../services/activityService';
-import { fetchGallery, fetchNotices } from '../services/contentService';
+import { fetchRecentActivity } from '../services/activityService.js';
+import { fetchGallery, fetchNotices } from '../services/contentService.js';
 import { useAuth } from '../hooks/useAuth';
 
 const actionLabels = {

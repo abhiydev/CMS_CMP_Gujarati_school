@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import SectionHeading from '../components/SectionHeading.jsx';
 import GalleryLightbox from '../components/GalleryLightbox.jsx';
 import NoticesBanner from '../components/NoticesBanner.jsx';
@@ -333,29 +338,88 @@ export default function HomePage() {
               title="Guiding every child with care, discipline and conviction."
               description="The school leadership shares a clear vision for success and character-building at every stage of learning."
             />
-            <div className="mt-12 grid gap-8 lg:grid-cols-2">
-              {asArray(leadership).map((person) => (
-                <motion.article
-                  key={person.name}
-                  className="rounded-[2rem] border border-slate-200/80 bg-white p-8 shadow-soft"
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
-                    <SafeImage src={person.image || person.image_url} alt={person.name} className="h-28 w-28 rounded-3xl object-cover shadow-lg" lazy />
-                    <div>
-                      <p className="text-lg font-semibold text-slate-900">{person.name}</p>
-                      <p className="mt-1 text-sm text-slate-500">{person.role}</p>
-                      <p className="text-sm text-slate-500">{person.position}</p>
-                    </div>
-                  </div>
-                  <blockquote className="mt-8 rounded-3xl bg-slate-100 p-6 text-slate-700">
-                    “{person.quote}”
-                  </blockquote>
-                </motion.article>
-              ))}
+            <div className="leadership-carousel relative mt-12 px-0 sm:px-12 lg:px-14">
+              <button
+                type="button"
+                className="leadership-prev absolute left-0 top-[calc(50%-2rem)] z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200/80 bg-white text-indigo-600 shadow-soft transition hover:border-indigo-200 hover:bg-indigo-50 sm:flex"
+                aria-label="Previous leadership message"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
+                  <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 0 1-.02 1.06L8.832 10l3.938 3.71a.75.75 0 1 1-1.04 1.08l-4.5-4.25a.75.75 0 0 1 0-1.08l4.5-4.25a.75.75 0 0 1 1.06.02Z" clipRule="evenodd" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                className="leadership-next absolute right-0 top-[calc(50%-2rem)] z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200/80 bg-white text-indigo-600 shadow-soft transition hover:border-indigo-200 hover:bg-indigo-50 sm:flex"
+                aria-label="Next leadership message"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
+                  <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z" clipRule="evenodd" />
+                </svg>
+              </button>
+              <Swiper
+                modules={[Autoplay, Pagination, Navigation]}
+                className="leadership-swiper pb-12"
+                spaceBetween={32}
+                slidesPerView={1}
+                breakpoints={{
+                  1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 32,
+                  },
+                }}
+                loop={asArray(leadership).length > 1}
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                pagination={{
+                  clickable: true,
+                  el: '.leadership-pagination',
+                }}
+                navigation={{
+                  prevEl: '.leadership-prev',
+                  nextEl: '.leadership-next',
+                }}
+                onBeforeInit={(swiper) => {
+                  swiper.params.navigation.prevEl = '.leadership-prev';
+                  swiper.params.navigation.nextEl = '.leadership-next';
+                  swiper.params.pagination.el = '.leadership-pagination';
+                }}
+                onInit={(swiper) => {
+                  swiper.navigation.init();
+                  swiper.navigation.update();
+                  swiper.pagination.init();
+                  swiper.pagination.update();
+                }}
+                grabCursor
+              >
+                {asArray(leadership).map((person) => (
+                  <SwiperSlide key={person.name} className="!h-auto">
+                    <motion.article
+                      className="flex h-full flex-col rounded-[2rem] border border-slate-200/80 bg-white p-8 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                      initial={{ opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
+                        <SafeImage src={person.image || person.image_url} alt={person.name} className="h-28 w-28 shrink-0 rounded-3xl object-cover shadow-lg" lazy />
+                        <div>
+                          <p className="text-lg font-semibold text-slate-900">{person.name}</p>
+                          <p className="mt-1 text-sm text-slate-500">{person.role}</p>
+                          <p className="text-sm text-slate-500">{person.position}</p>
+                        </div>
+                      </div>
+                      <blockquote className="mt-8 flex-1 rounded-3xl bg-slate-100 p-6 text-slate-700">
+                        “{person.quote}”
+                      </blockquote>
+                    </motion.article>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+              <div className="leadership-pagination flex justify-center" />
             </div>
           </div>
         </section>
@@ -609,6 +673,11 @@ export default function HomePage() {
               <p className="mt-4 text-slate-600">Call now or email to schedule a campus visit and start enrollment.</p>
             </div>
           </div>
+        </div>
+        <div className="py-2 text-center">
+          <a href="https://kamiytech.com/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-300 hover:text-slate-400 transition-colors">
+            Designed & Developed by KamiyTech | Abhishek Chedwal
+          </a>
         </div>
       </footer>
 

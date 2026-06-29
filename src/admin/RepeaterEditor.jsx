@@ -1,4 +1,4 @@
-import AdminImageField from './AdminImageField';
+import AdminImageField from './AdminImageField.jsx';
 
 const emptyItem = (fields) =>
   fields.reduce((acc, field) => ({ ...acc, [field.key]: '' }), {});

@@ -1,4 +1,4 @@
-import { storageBucket } from '../services/supabaseClient';
+import { storageBucket } from '../services/supabaseClient.js';
 
 /** Extract storage object path from a Supabase public URL. */
 export function parseStoragePathFromUrl(publicUrl) {

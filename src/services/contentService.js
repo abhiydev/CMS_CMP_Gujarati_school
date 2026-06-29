@@ -1,7 +1,7 @@
-import { getSectionConfig } from '../admin/sectionConfig';
-import { parseStoragePathFromUrl } from '../utils/storage';
-import { validateImageFile } from '../utils/validation';
-import { supabase, storageBucket } from './supabaseClient';
+import { getSectionConfig } from '../admin/sectionConfig.js';
+import { parseStoragePathFromUrl } from '../utils/storage.js';
+import { validateImageFile } from '../utils/validation.js';
+import { supabase, storageBucket } from './supabaseClient.js';
 
 export const asArray = (value) => {
   if (Array.isArray(value)) return value;
@@ -122,7 +122,7 @@ const normalizeRows = (rows) => {
 };
 
 export const fetchSiteContent = async () => {
-  const { data, error } = await supabase.from('site_content').select('*').eq('status', 'published');
+  const { data, error } = await supabase.from('site_content').select('*');
   if (error) {
     throw error;
   }

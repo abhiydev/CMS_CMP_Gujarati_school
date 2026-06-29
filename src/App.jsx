@@ -1,18 +1,18 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import ErrorBoundary from './components/ErrorBoundary';
-import LoadingSpinner from './components/LoadingSpinner';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
+import LoadingSpinner from './components/LoadingSpinner.jsx';
 
-const HomePage = lazy(() => import('./pages/HomePage'));
-const AdminLoginPage = lazy(() => import('./admin/AdminLoginPage'));
-const AdminLayout = lazy(() => import('./admin/AdminLayout'));
-const AdminDashboardPage = lazy(() => import('./admin/AdminDashboardPage'));
-const AdminContentPage = lazy(() => import('./admin/AdminContentPage'));
-const AdminGalleryPage = lazy(() => import('./admin/AdminGalleryPage'));
-const AdminNoticesPage = lazy(() => import('./admin/AdminNoticesPage'));
-const AdminActivityPage = lazy(() => import('./admin/AdminActivityPage'));
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const HomePage = lazy(() => import('./pages/HomePage.jsx'));
+const AdminLoginPage = lazy(() => import('./admin/AdminLoginPage.jsx'));
+const AdminLayout = lazy(() => import('./admin/AdminLayout.jsx'));
+const AdminDashboardPage = lazy(() => import('./admin/AdminDashboardPage.jsx'));
+const AdminContentPage = lazy(() => import('./admin/AdminContentPage.jsx'));
+const AdminGalleryPage = lazy(() => import('./admin/AdminGalleryPage.jsx'));
+const AdminNoticesPage = lazy(() => import('./admin/AdminNoticesPage.jsx'));
+const AdminActivityPage = lazy(() => import('./admin/AdminActivityPage.jsx'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function App() {
   return (

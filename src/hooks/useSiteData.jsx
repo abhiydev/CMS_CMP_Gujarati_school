@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import { asArray, fetchGallery, fetchNotices, fetchSiteContent } from '../services/contentService';
+import { asArray, fetchGallery, fetchNotices, fetchSiteContent } from '../services/contentService.js';
 
-import { fallbackContent } from '../data';
+import { fallbackContent } from '../data.js';
 
 
 

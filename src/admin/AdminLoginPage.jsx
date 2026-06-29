@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
-import SeoMeta from '../components/SeoMeta';
-import LoadingSpinner from '../components/LoadingSpinner';
+import { useAuth } from '../hooks/useAuth.jsx';
+import SeoMeta from '../components/SeoMeta.jsx';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
 
 export default function AdminLoginPage() {
   const { session, loading, signIn, error } = useAuth();

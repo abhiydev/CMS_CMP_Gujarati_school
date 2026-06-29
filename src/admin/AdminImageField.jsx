@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react';
 
-import { uploadStorageImage } from '../services/contentService';
+import { uploadStorageImage } from '../services/contentService.js';
 
-import { validateImageFile } from '../utils/validation';
+import { validateImageFile } from '../utils/validation.js';
 
-import SafeImage from '../components/SafeImage';
+import SafeImage from '../components/SafeImage.jsx';
 
 
 
