@@ -70,7 +70,7 @@ export default function HomePage() {
 
             <div className="min-w-0 leading-tight">
               <p className="truncate text-[11px] font-bold uppercase tracking-[0.22em] text-indigo-600">
-                CMP Gujarati Samaj
+                Smt. CMP Gujarati
               </p>
 
               <p className="truncate text-sm font-semibold text-slate-900 sm:text-base">
@@ -193,7 +193,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Why Parents Choose Us"
               title="A school built around affordability, facilities, and trust."
-              description="Our focus is on real support for children and families: modern classrooms, cultural values, nutritious care, and strong community leadership."
+              description="Our focus is on real support for children and families: modern classrooms, cultural values, and strong community leadership."
             />
             <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {asArray(benefits).map((item) => (
@@ -222,7 +222,7 @@ export default function HomePage() {
               <div>
                 <SectionHeading
                   eyebrow="About the School"
-                  title="A Gujarati heritage school that also prepares every child for modern success."
+                  title="Smt. CMP Gujarati Primary and Middle school, A Gujarati heritage school that also prepares every child for modern success."
                   description="Founded with deep community roots in 1957, the school continues to grow with disciplined teaching, strong cultural values and a student-first approach."
                 />
                 <div className="mt-10 space-y-6 text-base leading-8 text-slate-600">
