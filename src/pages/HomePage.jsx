@@ -137,7 +137,7 @@ export default function HomePage() {
       <main>
         <section id="home" className="relative min-h-[560px] overflow-hidden sm:min-h-[620px]">
           <div className="absolute inset-0 bg-slate-950/60" />
-          <img src={hero.background || hero.image_url} alt="Students at Shree Gujarati Samaj School, Indore" className="absolute inset-0 h-full w-full object-cover opacity-80" />
+          <img src={hero.background || hero.image_url} alt="Students at Smt. C.M.P Gujarati School, Indore" className="absolute inset-0 h-full w-full object-cover opacity-80" />
           <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pb-20 sm:pt-20 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
               <motion.div
@@ -147,13 +147,13 @@ export default function HomePage() {
                 transition={{ duration: 0.8, ease: 'easeOut' }}
               >
                 <span className="inline-flex rounded-full bg-white/90 px-4 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900">
-                  Founded 1957 • Indore
+                  Founded in Year 1957 • Indore
                 </span>
                 <h1 className="mt-8 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
                   {hero.title || 'Heritage education, built for modern admissions.'}
                 </h1>
                 <p className="mt-6 max-w-xl text-lg leading-8 text-slate-100/90">
-                  {hero.subtitle || 'CMP Gujarati Samaj School blends disciplined academics, cultural pride and affordable facilities to make every parent feel confident about their child’s future.'}
+                  {hero.subtitle || 'Smt. C.M.P Gujarati School blends disciplined academics, cultural pride and affordable facilities to make every parent feel confident about their child’s future.'}
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                   <a href="#admissions" className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-600/20 hover:bg-indigo-700">
@@ -222,7 +222,7 @@ export default function HomePage() {
               <div>
                 <SectionHeading
                   eyebrow="About the School"
-                  title="Smt. CMP Gujarati Primary and Middle school, A Gujarati heritage school that also prepares every child for modern success."
+                  title="Smt. C.M.P Gujarati Primary and Middle school, A Gujarati heritage school that also prepares every child for modern success."
                   description="Founded with deep community roots in 1957, the school continues to grow with disciplined teaching, strong cultural values and a student-first approach."
                 />
                 <div className="mt-10 space-y-6 text-base leading-8 text-slate-600">
@@ -232,7 +232,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="aspect-[4/3] overflow-hidden rounded-[2rem] bg-slate-950 shadow-soft shadow-slate-900/15">
-                <SafeImage src={about.image || about.image_url} alt="School event at Shree Gujarati Samaj School" className="h-full w-full object-cover" lazy />
+                <SafeImage src={about.image || about.image_url} alt="School event at Smt. C.M.P Gujarati Primary and Middle School" className="h-full w-full object-cover" lazy />
               </div>
             </div>
           </div>
@@ -604,7 +604,7 @@ export default function HomePage() {
               <div className="min-w-0 overflow-hidden rounded-[2rem] border border-white/10 bg-slate-800 p-4 sm:p-8 shadow-soft">
                 <div className="overflow-hidden rounded-[1.5rem] border border-white/10">
                   <iframe
-                    title="CMP Gujarati Samaj School Location"
+                    title="Smt. C.M.P Gujarati School Location"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1977.9849983603403!2d75.86895099814929!3d22.711438918311288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd1a7c23cbb1%3A0x34c6f1f8c8907cef!2sCMP%20Gujarati%20Samaj%20School!5e0!3m2!1sen!2sin!4v1780775436123!5m2!1sen!2sin"
                     className="h-80 w-full"
                     style={{ border: 0 }}
@@ -624,7 +624,7 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:px-8">
           <div>
             <div className="flex items-center gap-3">
-              <img src={brand.logo} alt="CMP Gujarati Samaj School logo" width={48} height={48} className="h-12 w-12 shrink-0 rounded-full border border-slate-200 bg-white object-contain p-0.5" />
+              <img src={brand.logo} alt="Smt. C.M.P Gujarati School logo" width={48} height={48} className="h-12 w-12 shrink-0 rounded-full border border-slate-200 bg-white object-contain p-0.5" />
               <div>
                 <p className="text-base font-semibold text-slate-900">Smt. C.M.P Gujarati Primary and Middle School</p>
                 <p className="text-sm text-slate-500">Building trusted Gujarati education in Indore since 1957.</p>
