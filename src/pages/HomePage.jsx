@@ -64,13 +64,13 @@ export default function HomePage() {
           <a href="#home" className="flex min-w-0 items-center gap-3">
             <img
               src={brand.logo}
-              alt="CMP Gujarati Samaj School logo"
+              alt="Smt. C.M.P Gujarati School logo"
               className="h-11 w-auto sm:h-12 md:h-15 object-contain"
             />
 
             <div className="min-w-0 leading-tight">
               <p className="truncate text-[11px] font-bold uppercase tracking-[0.22em] text-indigo-600">
-                Smt. CMP Gujarati
+                Smt. C.M.P Gujarati
               </p>
 
               <p className="truncate text-sm font-semibold text-slate-900 sm:text-base">
@@ -626,7 +626,7 @@ export default function HomePage() {
             <div className="flex items-center gap-3">
               <img src={brand.logo} alt="CMP Gujarati Samaj School logo" width={48} height={48} className="h-12 w-12 shrink-0 rounded-full border border-slate-200 bg-white object-contain p-0.5" />
               <div>
-                <p className="text-base font-semibold text-slate-900">CMP Gujarati Samaj School</p>
+                <p className="text-base font-semibold text-slate-900">Smt. C.M.P Gujarati Primary and Middle School</p>
                 <p className="text-sm text-slate-500">Building trusted Gujarati education in Indore since 1957.</p>
               </div>
             </div>
