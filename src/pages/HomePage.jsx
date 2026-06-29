@@ -64,7 +64,7 @@ export default function HomePage() {
           <a href="#home" className="flex min-w-0 items-center gap-3">
             <img
               src={brand.logo}
-              alt="CMP Gujarati Samaj School logo"
+              alt="Smt. C.M.P Gujarati School logo"
               className="h-11 w-auto sm:h-12 md:h-15 object-contain"
             />
 
