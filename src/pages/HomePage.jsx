@@ -157,7 +157,7 @@ export default function HomePage() {
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                   <a href="#admissions" className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-600/20 hover:bg-indigo-700">
-                    Start Admissions
+                    Admissions Open
                   </a>
                   <a href="#contact" className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-base font-semibold text-white hover:bg-white/20">
                     Schedule a Visit
@@ -670,13 +670,13 @@ export default function HomePage() {
             </div>
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Admissions</p>
-              <p className="mt-4 text-slate-600">Call now or email to schedule a campus visit and start enrollment.</p>
+              <p className="mt-4 text-slate-600">Call now to schedule a campus visit and start enrollment.</p>
             </div>
           </div>
         </div>
         <div className="py-2 text-center">
           <a href="https://kamiytech.com/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-300 hover:text-slate-400 transition-colors">
-            Designed & Developed by KamiyTech | Abhishek Chedwal
+            Designed & Developed by KamiyTech ~Abhishek Chedwal
           </a>
         </div>
       </footer>
