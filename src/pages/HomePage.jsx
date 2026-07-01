@@ -138,8 +138,8 @@ export default function HomePage() {
         <section id="home" className="relative min-h-[560px] overflow-hidden sm:min-h-[620px]">
           <div className="absolute inset-0 bg-slate-950/60" />
           <img src={hero.background || hero.image_url} alt="Students at Smt. C.M.P Gujarati School, Indore" className="absolute inset-0 h-full w-full object-cover opacity-80" />
-          <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pb-20 sm:pt-20 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+          <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pb-20 sm:pt-10 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end bg-slate-950/50 px-6 py-6 rounded-[2rem] shadow-soft shadow-slate-900/30">
               <motion.div
                 className="max-w-2xl"
                 initial={{ opacity: 0, y: 32 }}
@@ -152,21 +152,21 @@ export default function HomePage() {
                 <h1 className="mt-8 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
                   {hero.title || 'Heritage education, built for modern admissions.'}
                 </h1>
-                <p className="mt-6 max-w-xl text-lg leading-8 text-slate-100/90">
+                <p className="mt-6 max-w-xl text-lg leading-8 text-white shadown-slate-950/50">
                   {hero.subtitle || 'Smt. C.M.P Gujarati School blends disciplined academics, cultural pride and affordable facilities to make every parent feel confident about their child’s future.'}
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                   <a href="#admissions" className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-600/20 hover:bg-indigo-700">
                     Admissions Open
                   </a>
-                  <a href="#contact" className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-base font-semibold text-white hover:bg-white/20">
+                  <a href="#contact" className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/20 bg-indigo-400 px-6 py-3 text-base font-semibold text-white-500 hover:bg-indigo-500">
                     Schedule a Visit
                   </a>
                 </div>
               </motion.div>
 
               <motion.div
-                className="rounded-[2rem] border border-white/10 bg-white/10 p-6 backdrop-blur-xl shadow-soft shadow-slate-900/20"
+                className="rounded-[2rem] border border-white/10 bg-slate-900 p-6 backdrop-blur-xl shadow-soft shadow-slate-900/20"
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: 'easeOut' }}
@@ -179,7 +179,7 @@ export default function HomePage() {
                   {asArray(hero.stats).map((stat) => (
                     <div key={`${stat.label}-${stat.value}`} className="rounded-3xl bg-white/10 p-5 text-white shadow-lg shadow-slate-950/20">
                       <p className="text-3xl font-semibold">{stat.value}</p>
-                      <p className="mt-2 text-sm leading-6 text-slate-200/85">{stat.label}</p>
+                      <p className="mt-2 text-sm leading-6 text-indigo-400">{stat.label}</p>
                     </div>
                   ))}
                 </div>
@@ -258,7 +258,7 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-[2rem] border border-white/10 bg-indigo-600/10 p-8 shadow-soft shadow-indigo-900/30">
+              {/* <div className="rounded-[2rem] border border-white/10 bg-indigo-600/10 p-8 shadow-soft shadow-indigo-900/30">
                 <h3 className="text-2xl font-semibold text-white">Achievement-focused learning</h3>
                 <p className="mt-6 leading-8 text-slate-100/90">{academic.description}</p>
                 <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -269,7 +269,7 @@ export default function HomePage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
