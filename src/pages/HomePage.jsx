@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -7,13 +7,15 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import SectionHeading from '../components/SectionHeading.jsx';
 import GalleryLightbox from '../components/GalleryLightbox.jsx';
+import GalleryCard from '../components/GalleryCard.jsx';
+import GalleryModal from '../components/GalleryModal.jsx';
 import NoticesBanner from '../components/NoticesBanner.jsx';
 import SafeImage from '../components/SafeImage.jsx';
 import ErrorBoundary from '../components/ErrorBoundary.jsx';
 import SeoMeta from '../components/SeoMeta.jsx';
 import SchoolJsonLd from '../components/SchoolJsonLd.jsx';
 import { useSiteData } from '../hooks/useSiteData.jsx';
-import { asArray } from '../services/contentService.js';
+import { asArray, fetchGalleryAlbums } from '../services/contentService.js';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 
 const navItems = [
@@ -28,6 +30,9 @@ const navItems = [
 
 export default function HomePage() {
   const [activeImage, setActiveImage] = useState(null);
+  const [activeAlbum, setActiveAlbum] = useState(null);
+  const [galleryAlbums, setGalleryAlbums] = useState([]);
+  const [galleryLoading, setGalleryLoading] = useState(true);
   const { content, gallery, notices, loading } = useSiteData();
 
   const brand = content.brand;
@@ -40,6 +45,25 @@ export default function HomePage() {
   const leadership = content.leadership;
   const admissions = content.admissions;
   const contact = content.contact;
+
+  // Load gallery albums
+  useEffect(() => {
+    let active = true;
+    const loadGallery = async () => {
+      try {
+        const albums = await fetchGalleryAlbums();
+        if (active) {
+          setGalleryAlbums(albums);
+          setGalleryLoading(false);
+        }
+      } catch (err) {
+        console.error('Failed to load gallery albums:', err);
+        if (active) setGalleryLoading(false);
+      }
+    };
+    loadGallery();
+    return () => { active = false; };
+  }, []);
 
   if (loading) {
     return (
@@ -433,18 +457,21 @@ export default function HomePage() {
                 title="Real moments from school events and celebrations."
                 description="Explore the school’s culture, academic activities and the joy of student life captured through real images."
               />
-              <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {asArray(gallery).map((src, index) => (
-                  <button
-                    type="button"
-                    key={`${src}-${index}`}
-                    onClick={() => setActiveImage(src)}
-                    className="w-full cursor-pointer overflow-hidden rounded-[2rem] shadow-soft"
-                  >
-                    <SafeImage src={src} alt={`Gallery ${index + 1}`} className="h-72 w-full object-cover transition duration-300 hover:scale-105" lazy />
-                  </button>
-                ))}
-              </div>
+              {galleryLoading ? (
+                <div className="mt-12 flex justify-center">
+                  <LoadingSpinner message="Loading gallery albums…" />
+                </div>
+              ) : galleryAlbums.length > 0 ? (
+                <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                  {galleryAlbums.map((album) => (
+                    <GalleryCard key={album.id} album={album} onViewAlbum={setActiveAlbum} />
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-12 rounded-[2rem] border border-slate-700 bg-slate-800 p-8 text-center text-slate-400">
+                  <p>No gallery albums available yet.</p>
+                </div>
+              )}
             </div>
           </section>
         </ErrorBoundary>
@@ -683,6 +710,12 @@ export default function HomePage() {
 
       <ErrorBoundary name="gallery-lightbox" fallbackTitle="">
         <GalleryLightbox src={activeImage} onClose={() => setActiveImage(null)} />
+      </ErrorBoundary>
+
+      <ErrorBoundary name="gallery-modal" fallbackTitle="">
+        {activeAlbum && (
+          <GalleryModal album={activeAlbum} onClose={() => setActiveAlbum(null)} />
+        )}
       </ErrorBoundary>
     </div>
   );
