@@ -257,7 +257,7 @@ export default function HomePage() {
               </div>
               <div className='object-cover'>
                 <SafeImage src={"/assets/history.jpeg"} alt="" className="h-full w-full object-cover rounded-[2rem] text-center" lazy />
-                <p>श्रीमती चंचलबेन मणिलाल परीख गुजराती प्राथमिक एवं माध्यमिक विद्यालय</p>
+                <h1 className='text-center text-xl font-bold'>श्रीमती चंचलबेन मणिलाल परीख गुजराती प्राथमिक एवं माध्यमिक विद्यालय</h1>
               </div>
             </div>
           </div>
@@ -283,12 +283,22 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <div className="bg-slate-950 shadow-soft shadow-slate-900/15 rounded-[2rem]">
-              {/* history card */}
-              <div className="rounded-[2rem] bg-slate-950 shadow-soft shadow-slate-900/15">
-                <SafeImage src={about.image || about.image_url} alt="School event at Smt. C.M.P Gujarati Primary and Middle School" className="h-full w-full object-cover" lazy />
-              </div>
-              </div>
+<div className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl transition-all duration-300 hover:border-blue-500/30 hover:shadow-blue-900/20">
+  <div className="p-6">
+    <h2 className="text-center text-2xl font-bold text-white">
+      Managing Committee
+    </h2>
+  </div>
+
+  <div className="overflow-hidden">
+    <SafeImage
+      src={about.image || about.image_url}
+      alt="School event at Smt. C.M.P Gujarati Primary and Middle School"
+      className="object-cover transition duration-500 group-hover:scale-105"
+      lazy
+    />
+  </div>
+</div>
             </div>
           </div>
         </section>
