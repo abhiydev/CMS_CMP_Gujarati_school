@@ -255,8 +255,9 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-              <div className="aspect-[4/3] overflow-hidden rounded-[2rem] bg-slate-950 shadow-soft shadow-slate-900/15">
-                <SafeImage src={about.image || about.image_url} alt="School event at Smt. C.M.P Gujarati Primary and Middle School" className="h-full w-full object-cover" lazy />
+              <div className='object-cover'>
+                <SafeImage src={"/assets/history.jpeg"} alt="" className="h-full w-full object-cover rounded-[2rem] text-center" lazy />
+                <p>श्रीमती चंचलबेन मणिलाल परीख गुजराती प्राथमिक एवं माध्यमिक विद्यालय</p>
               </div>
             </div>
           </div>
@@ -282,18 +283,12 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              {/* <div className="rounded-[2rem] border border-white/10 bg-indigo-600/10 p-8 shadow-soft shadow-indigo-900/30">
-                <h3 className="text-2xl font-semibold text-white">Achievement-focused learning</h3>
-                <p className="mt-6 leading-8 text-slate-100/90">{academic.description}</p>
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  {asArray(academic.achievements).map((item) => (
-                    <div key={item} className="rounded-3xl bg-white/10 p-5">
-                      <p className="text-sm uppercase tracking-[0.2em] text-slate-300">Key focus</p>
-                      <p className="mt-4 text-lg font-semibold text-white">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
+              <div className="bg-slate-950 shadow-soft shadow-slate-900/15 rounded-[2rem]">
+              {/* history card */}
+              <div className="rounded-[2rem] bg-slate-950 shadow-soft shadow-slate-900/15">
+                <SafeImage src={about.image || about.image_url} alt="School event at Smt. C.M.P Gujarati Primary and Middle School" className="h-full w-full object-cover" lazy />
+              </div>
+              </div>
             </div>
           </div>
         </section>
