@@ -257,7 +257,7 @@ export default function HomePage() {
               </div>
               <div className='object-cover'>
                 <SafeImage src={"/assets/history.jpeg"} alt="" className="h-full w-full object-cover rounded-[2rem] text-center" lazy />
-                <h1 className='text-center text-xl font-bold'>श्रीमती चंचलबेन मणिलाल परीख गुजराती प्राथमिक एवं माध्यमिक विद्यालय</h1>
+                <h1 className='text-center text-xl font-bold mt-1'>श्रीमती चंचलबेन मणिलाल परीख गुजराती प्राथमिक एवं माध्यमिक विद्यालय</h1>
               </div>
             </div>
           </div>
