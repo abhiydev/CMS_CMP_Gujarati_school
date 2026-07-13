@@ -485,7 +485,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <SectionHeading
               eyebrow="Admissions"
-              title="Admission is open for curious learners and families who value strong roots and modern outcomes."
+              title="Admissions are open for curious learners and families who value strong roots and modern outcomes."
               description="Reach out today to understand the admission process, schedule a campus visit, or request more information about fees and facilities."
             />
             <div className="mt-14 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
