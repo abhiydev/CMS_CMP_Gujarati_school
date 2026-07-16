@@ -1,10 +1,10 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import Analytics from './components/Analytics.jsx';
 import ErrorBoundary from './components/ErrorBoundary.jsx';
-import LoadingSpinner from './components/LoadingSpinner.jsx';
+import HomePage from './pages/HomePage.jsx';
 
-const HomePage = lazy(() => import('./pages/HomePage.jsx'));
 const AdminLoginPage = lazy(() => import('./admin/AdminLoginPage.jsx'));
 const AdminLayout = lazy(() => import('./admin/AdminLayout.jsx'));
 const AdminDashboardPage = lazy(() => import('./admin/AdminDashboardPage.jsx'));
@@ -17,8 +17,9 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 function App() {
   return (
     <HelmetProvider>
+      <Analytics />
       <BrowserRouter>
-        <Suspense fallback={<LoadingSpinner message="Loading application…" />}>
+        <Suspense fallback={null}>
           <Routes>
             <Route
               path="/"

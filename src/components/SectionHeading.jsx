@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export default function SectionHeading({ eyebrow, title, description, variant = 'light' }) {
+export default function SectionHeading({ eyebrow, title, description, variant = 'light', titleId }) {
   const isDark = variant === 'dark';
 
   return (
@@ -16,7 +16,7 @@ export default function SectionHeading({ eyebrow, title, description, variant = 
           {eyebrow}
         </p>
       ) : null}
-      <h2 className={`mt-4 text-3xl font-semibold tracking-tight sm:text-4xl ${isDark ? 'text-white' : 'text-slate-900'}`}>
+      <h2 id={titleId} className={`mt-4 text-3xl font-semibold tracking-tight sm:text-4xl ${isDark ? 'text-white' : 'text-slate-900'}`}>
         {title}
       </h2>
       <p className={`mt-4 text-base leading-8 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{description}</p>

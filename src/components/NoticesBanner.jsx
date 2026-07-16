@@ -19,7 +19,7 @@ export default function NoticesBanner({ notices }) {
   };
 
   return (
-    <section className="border-b border-indigo-100 bg-indigo-50/90">
+    <section className="border-b border-indigo-100 bg-indigo-50/90" aria-label="School notices">
       <div className="mx-auto max-w-7xl space-y-3 px-6 py-4 lg:px-8">
         {visible.map((notice) => (
           <article
@@ -36,6 +36,7 @@ export default function NoticesBanner({ notices }) {
             <button
               type="button"
               onClick={() => dismiss(notice.id)}
+              aria-label={`Dismiss notice: ${notice.title}`}
               className="shrink-0 min-h-[44px] rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50"
             >
               Dismiss

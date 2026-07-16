@@ -16,11 +16,18 @@ export default defineConfig({
             return 'supabase-vendor';
           }
 
+          if (id.includes('node_modules/swiper')) {
+            return 'swiper-vendor';
+          }
+
+          if (id.includes('node_modules/react-router-dom') || id.includes('node_modules/react-router')) {
+            return 'router-vendor';
+          }
+
           if (id.includes('node_modules/framer-motion')) {
             return 'motion-vendor';
           }
 
-          // Group remaining node_modules together to avoid circular dependencies
           return 'vendor';
         },
       },

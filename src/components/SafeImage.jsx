@@ -5,6 +5,7 @@ export default function SafeImage({
   alt,
   className = '',
   lazy = false,
+  priority = false,
   fallbackClassName = 'bg-slate-200',
 }) {
   const [broken, setBroken] = useState(false);
@@ -26,7 +27,8 @@ export default function SafeImage({
       src={src}
       alt={alt || ''}
       className={className}
-      loading={lazy ? 'lazy' : undefined}
+      loading={priority ? 'eager' : lazy ? 'lazy' : undefined}
+      fetchPriority={priority ? 'high' : undefined}
       decoding="async"
       onError={() => setBroken(true)}
     />

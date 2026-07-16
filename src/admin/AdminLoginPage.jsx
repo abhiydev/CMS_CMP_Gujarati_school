@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth.jsx';
-import SeoMeta from '../components/SeoMeta.jsx';
+import SEO from '../components/SEO.jsx';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 
 export default function AdminLoginPage() {
@@ -35,33 +35,37 @@ export default function AdminLoginPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 px-6 py-24 text-slate-900">
-      <SeoMeta title="Admin Login" description="Secure CMS access for school staff." noindex />
+      <SEO title="Admin Login" description="Secure CMS access for school staff." noindex />
       <div className="mx-auto max-w-md rounded-[2rem] border border-slate-200 bg-white p-8 shadow-soft sm:p-10">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-600">Admin Login</p>
         <h1 className="mt-6 text-3xl font-semibold text-slate-900">Secure access to the school CMS</h1>
         <p className="mt-4 text-slate-600">Sign in with your admin credentials to manage content, gallery uploads, and notices.</p>
 
         <form className="mt-10 space-y-6" onSubmit={handleSubmit}>
-          <label className="block">
+          <label className="block" htmlFor="admin-email">
             <span className="text-sm font-medium text-slate-700">Email</span>
             <input
+              id="admin-email"
               type="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               className="mt-3 w-full rounded-3xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-indigo-500 focus:outline-none"
               placeholder="admin@example.com"
+              autoComplete="email"
               required
             />
           </label>
 
-          <label className="block">
+          <label className="block" htmlFor="admin-password">
             <span className="text-sm font-medium text-slate-700">Password</span>
             <input
+              id="admin-password"
               type="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               className="mt-3 w-full rounded-3xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-indigo-500 focus:outline-none"
               placeholder="Enter your password"
+              autoComplete="current-password"
               required
             />
           </label>

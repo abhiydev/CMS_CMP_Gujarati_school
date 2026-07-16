@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import SeoMeta from '../components/SeoMeta.jsx';
+import SEO from '../components/SEO.jsx';
 
 export default function NotFoundPage() {
   return (
     <div className="min-h-screen bg-slate-50 px-6 py-24 text-slate-900">
-      <SeoMeta title="Page Not Found" description="The requested page could not be found." noindex />
+      <SEO title="Page Not Found" description="The requested page could not be found." noindex />
       <div className="mx-auto max-w-3xl rounded-[2rem] border border-slate-200 bg-white p-12 shadow-soft">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-600">Page not found</p>
         <h1 className="mt-6 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">We couldn’t find that page.</h1>

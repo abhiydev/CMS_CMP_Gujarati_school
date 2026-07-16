@@ -12,8 +12,7 @@ import GalleryModal from '../components/GalleryModal.jsx';
 import NoticesBanner from '../components/NoticesBanner.jsx';
 import SafeImage from '../components/SafeImage.jsx';
 import ErrorBoundary from '../components/ErrorBoundary.jsx';
-import SeoMeta from '../components/SeoMeta.jsx';
-import SchoolJsonLd from '../components/SchoolJsonLd.jsx';
+import SEO from '../components/SEO.jsx';
 import { useSiteData } from '../hooks/useSiteData.jsx';
 import { asArray, fetchGalleryAlbums } from '../services/contentService.js';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
@@ -33,7 +32,7 @@ export default function HomePage() {
   const [activeAlbum, setActiveAlbum] = useState(null);
   const [galleryAlbums, setGalleryAlbums] = useState([]);
   const [galleryLoading, setGalleryLoading] = useState(true);
-  const { content, gallery, notices, loading } = useSiteData();
+  const { content, notices } = useSiteData();
 
   const brand = content.brand;
   const hero = content.hero;
@@ -65,22 +64,25 @@ export default function HomePage() {
     return () => { active = false; };
   }, []);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-slate-50 text-slate-900">
-        <LoadingSpinner message="Loading school content…" />
-      </div>
-    );
-  }
+  const heroImage = hero.background || hero.image_url;
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-slate-50 text-slate-900">
-      <SeoMeta
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-white"
+      >
+        Skip to main content
+      </a>
+      <SEO
         title={brand.title}
         description={brand.description || brand.tagline}
-        image={hero.background || hero.image_url}
+        image={heroImage}
+        brand={brand}
+        contact={contact}
+        logo={brand.logo}
+        preloadImage={heroImage}
       />
-      <SchoolJsonLd brand={brand} contact={contact} logo={brand.logo} />
 
       <header className="sticky scroll-fixed w-screen top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur-lg">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
@@ -158,10 +160,17 @@ export default function HomePage() {
 
       <NoticesBanner notices={notices} />
 
-      <main>
+      <main id="main-content">
         <section id="home" className="relative min-h-[560px] overflow-hidden sm:min-h-[620px]">
           <div className="absolute inset-0 bg-slate-950/60" />
-          <img src={hero.background || hero.image_url} alt="Students at Smt. C.M.P Gujarati School, Indore" className="absolute inset-0 h-full w-full object-cover opacity-80" />
+          <img
+            src={heroImage}
+            alt="Students at Smt. C.M.P Gujarati Primary and Middle School, Indore"
+            className="absolute inset-0 h-full w-full object-cover opacity-80"
+            decoding="async"
+            width={1920}
+            height={1080}
+          />
           <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pb-20 sm:pt-10 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end bg-slate-950/50 px-6 py-6 rounded-[2rem] shadow-soft shadow-slate-900/30">
               <motion.div
@@ -183,7 +192,7 @@ export default function HomePage() {
                   <a href="#admissions" className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-600/20 hover:bg-indigo-700">
                     Admissions Open
                   </a>
-                  <a href="#contact" className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/20 bg-indigo-400 px-6 py-3 text-base font-semibold text-white-500 hover:bg-indigo-500">
+                  <a href="#contact" className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/20 bg-indigo-400 px-6 py-3 text-base font-semibold text-white hover:bg-indigo-500">
                     Schedule a Visit
                   </a>
                 </div>
@@ -256,20 +265,29 @@ export default function HomePage() {
                 </div>
               </div>
               <div className='object-cover'>
-                <SafeImage src={"history.jpeg"} alt="" className="h-full w-full object-cover rounded-[2rem] text-center" lazy />
-                <h1 className='text-center text-xl font-bold mt-1'>श्रीमती चंचलबेन मणिलाल परीख गुजराती प्राथमिक एवं माध्यमिक विद्यालय</h1>
+                <SafeImage
+                  src="/history.jpeg"
+                  alt="Historical photograph of Smt. Chanchalben Manilal Parikh Gujarati Primary and Middle School, Indore"
+                  className="h-full w-full object-cover rounded-[2rem] text-center"
+                  lazy
+                />
+                <p className="text-center text-xl font-bold mt-1" lang="hi">
+                  श्रीमती चंचलबेन मणिलाल परीख गुजराती प्राथमिक एवं माध्यमिक विद्यालय
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="academics" className="bg-slate-900 py-20 text-white">
+        <section id="academics" className="bg-slate-900 py-20 text-white" aria-labelledby="academics-heading">
+          <div id="achievements" className="scroll-mt-24" tabIndex={-1} aria-hidden="true" />
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <SectionHeading
               variant="dark"
               eyebrow="Academic Excellence"
               title="Education with a strong academic foundation."
               description="From academics to the arts, the school blends discipline with creativity to help every child flourish in their own way and build a strong foundation for future success."
+              titleId="academics-heading"
             />
             <div className="mt-12 grid gap-8 lg:grid-cols-[0.95fr_0.95fr] lg:items-start">
               <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-soft shadow-black/20">
@@ -707,7 +725,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="py-2 text-center">
-          <a href="https://kamiytech.com/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-300 hover:text-slate-400 transition-colors">
+          <a href="https://kamiytech.com/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-500 hover:text-slate-700 transition-colors">
             Designed & Developed by KamiyTech ~Abhishek Chedwal
           </a>
         </div>

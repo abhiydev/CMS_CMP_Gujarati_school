@@ -48,6 +48,7 @@ export default function GalleryCard({ album, onViewAlbum }) {
         <button
           type="button"
           onClick={() => onViewAlbum(album)}
+          aria-label={`View ${title} photo album`}
           className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
         >
           View More

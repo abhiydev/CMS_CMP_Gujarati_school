@@ -1,5 +1,6 @@
 import { Link, Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth.jsx';
+import SEO from '../components/SEO.jsx';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 import ErrorBoundary from '../components/ErrorBoundary.jsx';
 
@@ -28,6 +29,7 @@ export default function AdminLayout() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
+      <SEO title="Admin Dashboard" description="Private CMS for school staff." noindex />
       <header className="border-b border-slate-200 bg-white/95 py-4 shadow-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
           <div>
@@ -39,6 +41,7 @@ export default function AdminLayout() {
           <button
             type="button"
             onClick={signOut}
+            aria-label="Sign out of admin dashboard"
             className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-100"
           >
             Sign Out
@@ -48,7 +51,7 @@ export default function AdminLayout() {
 
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 lg:px-8 lg:flex-row">
         <aside className="w-full rounded-[2rem] border border-slate-200 bg-white p-6 shadow-soft lg:w-80">
-          <nav className="space-y-3">
+          <nav className="space-y-3" aria-label="Admin navigation">
             {navItems.map((item) => (
               <Link
                 key={item.path}
